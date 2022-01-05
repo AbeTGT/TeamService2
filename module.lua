@@ -8,8 +8,6 @@
 (TeamService2)
 TS2 allows you to control your game's teams, with a cool looking module.
 
-Do not steal this module. Plagiarism can be illegal.
-
 2022 AbeTGT (ValkryieDominus).
 
 Documentation: https://github.com/AbeTGT/TeamService2/tree/main
@@ -22,7 +20,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local moduleScript = ReplicatedStorage:WaitForChild("TeamService2")
 local module = require(moduleScript)
 
-Thanks for taking this module! Please do not edit the module.
+Thanks for taking this module!
 ]]
 
 local Teams = game:GetService("Teams")
