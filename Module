@@ -1,0 +1,43 @@
+-- 2022 AbeTGT (ValkryieDominus). TeamService2
+
+local Teams = game:GetService("Teams")
+
+local Module = {}
+
+function Module.FindTeamByName(name)
+	if Teams:FindFirstChild(name) then return Teams[name] end
+	for _, team in pairs(Teams:GetChildren()) do
+		if team.Name:sub(1, name:len()):lower() == name:lower() then
+			return team
+		end
+	end
+end
+
+function Module.CreateNewTeam(name, autoAssignable, teamColor)
+	local newTeam = Instance.new("Team", Teams)
+	newTeam.TeamColor = BrickColor.new(teamColor)
+	newTeam.Name = name
+	newTeam.AutoAssignable = autoAssignable
+end
+
+function Module.DestroyTeam(name, printResults)
+	local TeamToDestroy = Teams:WaitForChild(name)
+	if TeamToDestroy then
+		TeamToDestroy:Destroy()
+		if printResults == true then
+			print("TeamService2: Successfully destroyed team "..name)
+		end
+	end
+end
+
+function Module.ChangeTeamName(name, nameToChange, printResults)
+	local TeamToChange = Teams:WaitForChild(name)
+	if TeamToChange then
+		TeamToChange.Name = name
+		if printResults == true then
+			print("TeamService2: Successfully changed team name to "..name)
+		end
+	end
+end
+
+return Module
